@@ -1,0 +1,13 @@
+<mat-card class="card p-1 charts mt-0 bs-card" style="margin-left: 2px;">
+    <span class="mt-2 d-flex space-left h5 custom-label">
+        <i class="fa fa-bar-chart text-primary" aria-hidden="true"></i>
+        Expense By Month
+    </span>
+
+    <apx-chart
+    [series]="chartOptions.series"
+    [chart]="chartOptions.chart"
+    [xaxis]="chartOptions.xaxis"
+    [title]="chartOptions.title"
+    ></apx-chart>
+</mat-card>

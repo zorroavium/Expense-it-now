@@ -1,0 +1,28 @@
+.text-gray {
+    color: gray;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.example-container {
+    width: 100%;
+  }
+  
+  .example-sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .example-sidenav {
+    padding: 20px;
+  }
+
+  .animate-wrapper {
+    transition: padding 300ms linear;
+  }
+
+  .mat-form-field-appearance-fill .mat-form-field-flex {
+    padding: 0 !important;
+}

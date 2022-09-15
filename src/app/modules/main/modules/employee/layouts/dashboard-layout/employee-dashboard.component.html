@@ -1,0 +1,121 @@
+<div class="d-flex justify-content-left" style="margin: 10px;">
+
+  <div class="expense-categories d-flex justify-content-between" style="margin-top:8px;">
+
+    <div class="card p-1 expense-card" style="background-color: #64b5f6;">
+      <span class="card-label text-white" >Total Expenses</span>
+      <span class="card-value text-white"> <i class="fa fa-inr" aria-hidden="true"></i> 5000</span>
+      <span class="card-value small-font text-white">Total Expenses Submitted: 5</span>
+      <div class="card-icon" style="right: -1px !important;">
+        <i class="fa fa-inr text-white" aria-hidden="true"></i>
+      </div>
+    </div>
+
+    <div class="card p-1 expense-card">
+        <span class="card-label text-success" >Approved Expense</span>
+        <span class="card-value"><i class="fa fa-inr" aria-hidden="true"></i> 1000</span>
+        <span class="card-value small-font">No. of Approved Expense: 2</span>
+        <div class="card-icon">
+          <i class="fa fa-check-circle-o text-success" aria-hidden="true"></i>
+        </div>
+    </div>
+
+    <div class="card p-1 expense-card">
+        <span class="card-label text-muted">Pending Approvals</span>
+        <span class="card-value"><i class="fa fa-inr" aria-hidden="true"></i> 2000</span>
+        <span class="card-value small-font">No. of Pending Approvals: 2</span>
+        <div class="card-icon">
+          <i class="fa fa-hourglass-end text-muted" aria-hidden="true"></i>
+        </div>
+    </div>
+
+    <div class="card p-1 expense-card">
+      <span class="card-label text-danger">Unapproved Expense</span>
+      <span class="card-value"> <i class="fa fa-inr" aria-hidden="true"></i> 2000</span>
+      <span class="card-value small-font">No. of Unapproved Expense: 1</span>
+      <div class="card-icon">
+        <i class="fa fa-ban text-danger" aria-hidden="true"></i>
+      </div>
+    </div>
+ </div>
+</div>
+
+<div class="d-flex justify-content-center" style="margin: 10px;">
+
+  <div class="card w-100" style="margin: 10px">
+    <div class="card-body w-100">
+
+      <!-- <div class="tab-container mb-1">
+        <ul class="tabs">
+          <li class="tab-content" *ngFor="let tab of tabs; let i = index;" [ngClass]="activeTabId === tab?.id ? 'active' : 'inactive'" (click)="activateTab(tab)">
+              <span class="w-100"
+                [ngClass]="activeTabId == tab?.id ? 'd-lg-inline tab-name-active' : 'd-lg-inline tab-name'">
+                <i class="d-lg-inline tab-icon" [ngClass]="tab?.icon"></i>&nbsp; &nbsp;{{ tab?.tabName }}</span>
+          </li>
+        </ul>
+      </div> -->
+
+       <div class="d-flex">
+            <mat-tab-group id="mat-tab" [(selectedIndex)]="activeTabId" (selectedTabChange)="tabClick($event)" mat-align-tabs="start" style="height: 44px; margin-bottom: 5px ">
+              <mat-tab [class.activeTabCustom]="activeTabId === 0" label="Your Expense">
+                <ng-template mat-tab-label>
+                  <mat-icon class="example-tab-icon">hourglass_empty</mat-icon>
+                  Your Expense
+                </ng-template>
+              </mat-tab>
+
+              <mat-tab [class.activeTabCustom]="activeTabId === 1" label="Needs Approvals">
+                <ng-template mat-tab-label>
+                  <mat-icon class="example-tab-icon">list</mat-icon>
+                  Needs Approvals
+                </ng-template>
+              </mat-tab>
+
+            </mat-tab-group>
+
+           <div  class=" w-100 d-flex justify-content-end">
+            <div class="d-flex p-1">
+                <span>Financial Year </span> &nbsp;
+                <div class="d-flex" bsDatepicker [bsConfig]="{dateInputFormat: 'YYYY'}"
+                (onShown)="onOpenCalendar($event)" placement="left" (bsValueChange)="changeYear($event)">
+                  <input [value]="fyYearPicker" autocomplete="off" class="form-control" name="date"
+                    style="width: 110px; height: 28px;" >
+                  <i class="fa fa-calendar" aria-hidden="true" style="position: absolute; padding: 6px; right: 19px;"></i>
+                </div>
+           </div>
+           </div>
+       </div>
+
+
+        <re-all-expense *ngIf="activeTabId === 0"
+          [rowData]="(employeeState$ | async)?.allExpenses"
+          (editExpense)="editExpenseHandler($event)">
+        </re-all-expense>
+
+        <re-expense-grid *ngIf="activeTabId === 1">
+        </re-expense-grid>
+    </div>
+  </div>
+
+</div>
+
+
+
+<div class="d-flex floating-btn">
+  <button
+      mat-fab
+      color="primary"
+      aria-label="Example icon button with a plus icon"
+      (click)="openModalWithClass(createExpensetemplate)"
+      tooltip="Create expense"
+    >
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+
+<ng-template #createExpensetemplate>
+  <div class="modal-body">
+   <re-create-expense
+    [editExpense]="editExpense"></re-create-expense>
+  </div>
+</ng-template>

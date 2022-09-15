@@ -1,0 +1,139 @@
+<div class="container-fluid">
+    <div class="d-flex flex-column">
+
+        <div class="d-flex flex-wrap">
+            <div class="categories">
+                <re-expense-categories></re-expense-categories>
+            </div>
+        </div>
+
+        <div class="d-flex mt-2" [ngClass]="{'flex-wrap': checkInnerWidth()}">
+            <div class="flex-shrink-1 snapshot mb-2" style=" margin-right: 0.5rem">
+                <re-expense-snapshot></re-expense-snapshot>
+            </div>
+            <div class="w-100">
+                <re-expense-by-month></re-expense-by-month>
+            </div>
+          </div>
+
+          <div class="d-flex mt-2 category-settings mb-3">
+            <mat-card class="d-flex flex-column w-100">
+                <div class="heading">
+                    <label class="h6" for="">Category Settings</label>
+                </div>
+                <div class="options-list d-flex flex-row">
+                    <div class="options m-4 clickable d-flex flex-row" (click)="onExpenseClick(template)">
+                        <div class="icon">
+                            <i class="fa fa-list fa-2x text-primary space-right" aria-hidden="true"></i>
+                        </div>
+                        <div class="info d-flex flex-column">
+                            <div class="label">
+                                Expense List
+                            </div>
+                            <div class="description">
+                                Manage the list of expenses
+                            </div>
+                        </div>
+                    </div>
+                    <div class="options m-4 clickable d-flex flex-row" (click)="onLimitClick(limit)">
+                        <div class="icon">
+                            <i class="fa fa-money fa-2x text-primary space-right" aria-hidden="true"></i>
+                        </div>
+                        <div class="info d-flex flex-column">
+                            <div class="label">
+                                Limit
+                            </div>
+                            <div class="description">
+                                Set Monthly/Yearly limit for each expense per employee
+                            </div>
+                        </div>
+                    </div>
+                    <div class="options m-4 clickable d-flex flex-row" (click)="onApprovalFlowClick()">
+                        <div class="icon space-right">
+                            <!--// This span is loading image -->
+                            <span class="img-flow"></span>
+                            <!-- This span is loading image //-->
+                        </div>
+                        <div class="info d-flex flex-column">
+                            <div class="label">
+                                Approval Flow
+                            </div>
+                            <div class="description">
+                                Configure the approval flow for an expense type
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </mat-card>
+          </div>
+
+    </div>
+</div>
+
+<ng-template #limit>
+
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">
+            <i class="fa fa-money text-success" aria-hidden="true"></i>
+            Manage Limit
+        </h4>
+        <button type="button" class="close pull-right btn btn-light" aria-label="Close" (click)="modalRef.hide()" style="border-radius: 50%;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="apply-all">
+              <div class="card p-4 d-flex flex-column shadow-sm" style="width: 920px">
+                  <div class="d-flex flex-row">
+
+                    <div class="d-flex align-items-center space-right">
+                        <mat-checkbox [(ngModel)]="limitObj.auto_approve" class="example-margin" color="primary">Auto Aprrove(Within Limit)</mat-checkbox>
+                    </div>
+                      <mat-form-field class="example-form-field space-right">
+                        <mat-label>Auto Approval Limit</mat-label>
+                        <input matInput type="number" [(ngModel)]="limitObj.auto_approval_limit">
+                      </mat-form-field>
+                      <mat-form-field class="example-form-field space-right">
+                        <mat-label>Monthly Limit</mat-label>
+                        <input matInput type="number" [(ngModel)]="limitObj.monthly_limit">
+                      </mat-form-field>
+                      <mat-form-field class="example-form-field space-right">
+                        <mat-label>Yearly Limit</mat-label>
+                        <input matInput type="number" [(ngModel)]="limitObj.yearly_limit">
+                      </mat-form-field>
+
+                    </div>
+                    <div class="button button d-flex justify-content-start">
+
+                        <button style="width: 140px" mat-flat-button color="primary" (click)="applyToAll()">
+                            <i class="fa fa-retweet space-right" aria-hidden="true"></i>
+                            Apply To All
+                        </button>
+                    </div>
+              </div>
+          </div>
+        <div class="p=4 limit-grid mt-4" style="max-width: 1300px">
+            <ag-grid-angular
+            style="height: 570px;"
+            class="ag-theme-alpine"
+            [rowData]="rowData"
+            [columnDefs]="columnDefs"
+            [defaultColDef]="defaultColDef"
+            [gridOptions]="gridOptions"
+            [frameworkComponents]="frameworkComponents"
+            (gridReady)="onGridReady($event)"
+          >
+          </ag-grid-angular>
+          </div>
+      </div>
+</ng-template>
+
+<ng-template #template>
+  <re-expense-category-settings
+    [categoryList]="categoryList"
+    [icons]="icons"
+    (addNewCategoryEvent)="addNewCategory($event)"
+    (closeEvent)="modalRef.hide()"
+  >  
+  </re-expense-category-settings>
+</ng-template>

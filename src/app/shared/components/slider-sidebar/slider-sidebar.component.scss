@@ -1,0 +1,51 @@
+$form-padding: 1rem 1rem 1rem 1.5rem;
+$gray-lighter:              #e4e5e6; //#c0cadd
+
+.slider-toggle {
+  position: absolute;
+  top: calc(50% - 30px);
+  left: 0;
+  width: 20px;
+  height: 60px;
+  color: #ffffff;
+  background-color: #28496b;
+  border: none;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);;
+  z-index: 100;
+  .icon {
+    margin-left: -0.25rem;
+  }
+  transition: all 0.25s linear;
+
+  &.right {
+    left: unset;
+    right: 0;
+  }
+
+  &.charts {
+    position: fixed;
+    top: 45%;
+  }
+}
+
+.slider-sidebar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  padding: $form-padding;
+  background-color: #ffffff;
+  border-right: 1px solid $gray-lighter;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  z-index: 1;
+
+  &.right {
+    left: unset;
+    right: 0;
+  }
+}
+
+.anim-count-2 {
+  animation-iteration-count: 2;
+}

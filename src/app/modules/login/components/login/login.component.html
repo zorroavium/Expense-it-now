@@ -1,0 +1,28 @@
+<div class="main">
+  <div class="container">
+     <div class="d-flex justify-content-center">
+       <img src="assets/img/logo_expense_it_now.png">
+     </div>
+    <form class="form1" [formGroup]="form">
+
+      <div class="input-container">
+        <i class="fa fa-user-circle icon"></i>
+        <input class="text-fields" type="text" placeholder="email" autocomplete="off" required="required"
+          formControlName="email" [ngClass]="{'danger': (form.get('email').dirty && form.get('email').invalid)}">
+      </div>
+
+      <div class="input-container">
+        <i class="fa fa-key icon"></i>
+        <input class="text-fields" type="password" placeholder="Password" required="required" formControlName="password"
+          [ngClass]="{'danger': form.get('password').dirty && form.get('password').invalid}">
+      </div>
+      <div class="unauthorized text-danger text-center" *ngIf="(loginState$ | async).error">
+        Authentication failed
+      </div>
+
+      <button class="submit" (click)="doLogin()" >Sign in</button>
+      <p class="forgot text-center" ><a >Forgot Password?</a></p>
+
+    </form>
+  </div>
+</div>

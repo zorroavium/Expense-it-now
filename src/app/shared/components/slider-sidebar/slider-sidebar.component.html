@@ -1,0 +1,42 @@
+ <!--// Left side slider -->
+
+ <button *ngIf="placement === 'left' && showCollapseButton"
+        class="slider-toggle" role="button"
+        [ngClass]="{'charts': screen === 'charts'}"
+        aria-label="Collapse slider sidebar"
+        [style.left]="collapsed ? '' : width - 8 + 'px'" 
+        [attr.aria-expanded]="!collapsed" 
+        (click)="collapsed = !collapsed">
+
+  <i [ngClass]="{ 'faa-passing': collapsed, 'faa-passing-reverse': !collapsed }" class="animated fa anim-count-2"
+    [class.fa-chevron-left]="!collapsed" [class.fa-chevron-right]="collapsed">
+  </i>
+  
+</button>
+
+ <!-- Left side slider //-->
+
+ <!-- Right side slider -->
+
+ <button *ngIf="placement === 'right' && showCollapseButton"
+         class="slider-toggle right" role="button"
+         [ngClass]="{'charts': screen === 'charts'}"
+         aria-label="Collapse slider sidebar"
+         [style.right]="collapsed ? '' : width - 8 + 'px'" 
+         [attr.aria-expanded]="!collapsed" 
+         (click)="collapsed = !collapsed">
+
+   <i [ngClass]="{ 'faa-passing': !collapsed, 'faa-passing-reverse': collapsed }" class="animated fa anim-count-2"
+     [class.fa-chevron-left]="collapsed" [class.fa-chevron-right]="!collapsed">
+   </i>
+ </button>
+
+ <!-- Right side slider -->
+
+<div class="slider-sidebar" [style.position]="relative ? '' : 'fixed'" [ngClass]="{'right': placement === 'right'}" [@sliderLeft]="collapsed && (placement === 'left')"
+  [@sliderRight]="collapsed && (placement === 'right')" [style.width]="width + 'px'" [style.top]="top + 'px'"
+     [style.margin-right]="marginRight"
+     [style.margin-top]="marginTop"
+     [style.margin-bottom]="marginBottom">
+  <ng-content></ng-content>
+</div>

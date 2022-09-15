@@ -1,0 +1,72 @@
+[
+  {
+    "category": "Travel Expense",
+    "expense_date": "23/03/2021",
+    "description": "sample description",
+    "attachments": "file with long name 1, file 2",
+    "amount": 2000,
+    "approved_amt": 1200,
+    "last_update_on": "01/04/2021",
+    "expense_status": [
+      {"name": "Akshay", "approved": true, "icon": "checkicon", "last_update_on": "01/04/2021"},
+      {"name": "Rahul", "approved": false, "icon": "schedule", "last_update_on": ""},
+      {"name": "Gopa", "approved": false, "icon": "schedule", "last_update_on": ""}
+    ]
+  },
+  {
+    "category": "Parking",
+    "expense_date": "16/04/2021",
+    "description": "sample description",
+    "attachments": "file 1, file 2",
+    "amount": 2000,
+    "approved_amt": 1200,
+    "last_update_on": "04/06/2021",
+    "expense_status": [
+      {"name": "Akshay", "approved": true, "icon": "checkicon", "last_update_on": "01/04/2021"},
+      {"name": "Rahul", "approved": false, "icon": "highlightofficon", "last_update_on": "01/04/2021"},
+      {"name": "Gopa", "approved": false, "icon": "schedule", "last_update_on": ""}
+    ]
+  },
+  {
+    "category": "Office Supplies",
+    "expense_date": "31/03/2021",
+    "description": "sample description",
+    "attachments": "file 1, file 2",
+    "amount": 2000,
+    "approved_amt": 1200,
+    "last_update_on": "01/04/2021",
+    "expense_status": [
+      {"name": "Akshay", "approved": true, "icon": "checkicon", "last_update_on": "01/04/2021"},
+      {"name": "Rahul", "approved": true, "icon": "checkicon", "last_update_on": "01/04/2021"},
+      {"name": "Gopa", "approved": false, "icon": "schedule", "last_update_on": ""}
+    ]
+  },
+  {
+    "category": "Meal and Entertaintment",
+    "expense_date": "16/04/2021",
+    "description": "sample description",
+    "attachments": "file 1, file 2",
+    "amount": 2000,
+    "approved_amt": 1200,
+    "last_update_on": "01/04/2021",
+    "expense_status": [
+      {"name": "Akshay", "approved": true, "icon": "checkicon", "last_update_on": "01/04/2021"},
+      {"name": "Rahul", "approved": true, "icon": "checkicon", "last_update_on": "01/04/2021"},
+      {"name": "Gopa", "approved": true, "icon": "checkicon", "last_update_on": "01/04/2021"}
+    ]
+  },
+  {
+    "category": "Other Expense",
+    "expense_date": "16/04/2021",
+    "description": "sample description",
+    "attachments": "file 1, file 2",
+    "amount": 2000,
+    "approved_amt": 1200,
+    "last_update_on": "",
+    "expense_status": [
+      {"name": "Akshay", "approved": false, "icon": "schedule", "last_update_on": ""},
+      {"name": "Rahul", "approved": false, "icon": "schedule", "last_update_on": ""},
+      {"name": "Gopa", "approved": false, "icon": "schedule", "last_update_on": ""}
+    ]
+  }
+]

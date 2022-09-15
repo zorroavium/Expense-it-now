@@ -1,0 +1,15 @@
+::ng-deep #allExpenseGrid .ag-root-wrapper {
+  border: none !important;
+}
+
+::ng-deep #allExpenseGrid .rejected {
+  color: #aa4200 !important;
+}
+
+::ng-deep #allExpenseGrid .pending {
+  color: #6c757d!important;
+}
+
+::ng-deep #allExpenseGrid .approved {
+  color: #198754 !important;
+}

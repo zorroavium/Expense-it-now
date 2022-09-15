@@ -1,0 +1,1 @@
+export { SliderSidebarComponent } from './slider-sidebar.component';

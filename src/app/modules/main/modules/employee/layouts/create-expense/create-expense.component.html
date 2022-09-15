@@ -1,0 +1,119 @@
+
+  <div class="mb-0" style="margin: 10px">
+    <div class="d-flex" style="padding: 5px !important;" style="margin-left: 1.2rem;">
+      <h5 style="margin-right: auto;" class="card-title text-success mt-1 mb-0">
+        <i _ngcontent-cxa-c308="" aria-hidden="true" class="fa fa-inr"></i> Create Expenses</h5>
+      <button class="close-btn fa fa-times hover-circle-background" (click)="closeBtn()">
+      </button>
+    </div>
+  </div>
+
+  <div class="d-flex" style="margin: 10px;">
+     <ng-container [ngTemplateOutlet]="formTemplate"></ng-container>
+  </div>
+
+  <ng-template #formTemplate>
+    <div class="w-100 card" *ngIf="form" [formGroup]="form">
+      <form formGroupName="expenseForm">
+        <div  class="card p-3 w-100">
+
+           <div class="d-flex w-100 justify-content-between">
+
+             <div  class="m-1 mt-0">
+              <mat-form-field class="example-full-width">
+                <mat-label>Expense category</mat-label>
+                <mat-select formControlName="expenseCategory">
+                  <mat-option *ngFor="let category of categoryList" [value]="category">
+                    {{category}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <!-- <label class="col-form-label">Expense category </label>
+              <input type="text" class="form-control" placeholder="Enter expense name" formControlName="expenseCategory"> -->
+             </div>
+
+             <div class="m-1 mt-0">
+              <mat-form-field class="example-full-width">
+                <mat-label>Expense Amount</mat-label>
+                <span matPrefix><i class="fa fa-inr" aria-hidden="true"></i> &nbsp;</span>
+                <input type="text" matInput formControlName="expenseAmount" >
+              </mat-form-field>
+              <!-- <label class="col-form-label">Expense Amount </label>
+              <div class="d-flex">
+               <div class="input-group-prepend">
+                 <span class="input-group-text" style="width: 35px; height: 32px !important;"><i class="fa fa-inr" aria-hidden="true"></i></span>
+               </div>
+                <input type="text" class="form-control" placeholder="Enter expense amount" formControlName="expenseAmount" >
+              </div> -->
+             </div>
+
+              <div class="mt-0 m-1">
+                <mat-form-field appearance="fill">
+                  <mat-label>Expense Date</mat-label>
+                  <input matInput [matDatepicker]="picker" formControlName="expenseDate">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+               <!-- <label class="col-form-label">Expense Date </label>
+                 <input type="date" class="form-control" formControlName="expenseDate"> -->
+              </div>
+
+           </div>
+
+
+
+         <div class="m-1">
+          <quill-editor [modules]="quillModule" formControlName="expenseDescription" [styles]="{height: '200px'}"></quill-editor>
+         </div>
+        </div>
+      </form>
+
+      <div class="m-1">
+        <div class="upload-file-info d-flex flex-row justify-content-end" *ngFor="let file of files; let i = index">
+
+          <div class="uploaded-files-view d-flex flex-row p-1">
+
+            <div class="file-info d-flex mr-1 align-items-center p-1">
+              <div class="file-name-percent d-flex flex-row text-muted pr-2" style="font-size: smaller;">
+                <span class="file-name ml-1">{{ file?.fileName?.length > 60 ? file?.fileName?.substring(0, 60) + "..." : file?.fileName }}</span>&nbsp; &nbsp;
+                <span class="percentage">{{file['progress']}}%</span>
+              </div> &nbsp; &nbsp;
+              <div class="progress file-upload-bar ml-1">
+                <div class="progress-bar bg-custom-theme" role="progressbar" [style.width]="file['progress'] + '%'"
+                  aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="delete p-1">
+              <i class="fa fa-times-circle font-lg clickable delete-icon text-muted" (click)="deleteFile(i)" ></i>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="card-footer text-muted d-flex justify-content-end p-0">
+        <div class="m-1 file-upload-btn-wrapper clickable" title="Upload File"  placement="bottom">
+          <i class="fa fa-paperclip paper-icon mt-2 text-primary clickable" aria-hidden="true">
+            <input class="file-upload-btn" type="file" #file
+                  (change)="processFile(file)">
+          </i>
+        </div>
+        <button class="m-2" [disabled]="!form?.dirty" mat-raised-button color="primary" (click)="saveExpense()" style="float: right">
+          Save
+        </button>
+      </div>
+    </div>
+
+  </ng-template>
+
+  <ng-template #agGridTemplete>
+    <ag-grid-angular
+        style="height: 500px;"
+        class="ag-theme-alpine w-100"
+        [rowData]="[]"
+        [columnDefs]="columnDefs"
+      >
+      </ag-grid-angular>
+  </ng-template>

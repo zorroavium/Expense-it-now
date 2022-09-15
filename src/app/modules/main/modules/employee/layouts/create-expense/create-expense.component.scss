@@ -1,0 +1,90 @@
+.close-btn {
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+  background: #fff;
+  border: 0;
+  z-index: 9;
+  color: rgb(0 0 0 / 38%);
+}
+
+::ng-deep .modal-body {
+  padding: 0px !important;
+}
+
+.paper-icon {
+  font-size: 25px;
+  transform: rotate(225deg);
+}
+
+.file-upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+
+  input.file-upload-btn {
+      overflow: hidden;
+      width: 20px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 0;
+      padding: 0;
+      cursor: pointer;
+      opacity: 0;
+      filter: alpha(opacity=0);
+  }
+}
+
+.form-control {
+  height: 32px !important;
+}
+
+// upload files
+
+.uploaded-files-view {
+  align-items: center;
+}
+
+.fa-container {
+  font-size: 16px;
+}
+
+.icon-in-uploaded-file {
+  background: -webkit-gradient(linear, left top, left bottom, from(#688edf), to(#537ed7));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.file-icon .fa {
+  transition: opacity 1s ease-in-out;
+
+  &.uploading {
+    opacity: 0.5;
+  }
+}
+
+.file-name-percent {
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.file-upload-bar{
+  width: 234px;
+  height: 6px;
+  margin-top: 3px;
+}
+
+::ng-deep .modal-content {
+  border: none !important;
+}
+
+.card {
+  border: none;
+}
+
+.col-form-label {
+  color: gray;
+  font-weight: 600;
+}

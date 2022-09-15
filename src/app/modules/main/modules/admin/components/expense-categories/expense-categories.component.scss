@@ -1,0 +1,31 @@
+.expense-card {
+    width: 140px;
+    height: 130px;
+    margin: 5px;
+}
+
+.fa.fa-2x {
+    // opacity: 0.6;
+    margin-left: 15px;
+    margin-top: 15px;
+}
+
+.card-label {
+    font-size: 10px;
+    font-weight: 600;
+    margin-top: 25px;
+    margin-left: 15px;
+    opacity: 0.6;
+}
+
+.card-value {
+    margin-left: 15px;
+    font-weight: 500;
+    font-size: medium;
+    opacity: 0.8;
+    color: gray;
+}
+
+.card {
+    box-shadow: 0 0.46875rem 2.1875rem #ced8e8, 0 0.9375rem 1.40625rem rgb(58 196 125 / 12%), 0 0.25rem 0.53125rem rgb(58 196 125 / 3%), 0 0.125rem 0.1875rem rgb(58 196 125 / 10%);
+}

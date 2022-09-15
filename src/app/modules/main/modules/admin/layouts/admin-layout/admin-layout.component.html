@@ -1,0 +1,34 @@
+<router-outlet></router-outlet>
+
+<ng-template #tabsTemplate>
+    
+    <mat-tab-group [(selectedIndex)]="selectedIndex" (selectedTabChange)="tabClick($event)" mat-align-tabs="start" style="height: 44px;">
+        <mat-tab [class.activeTabCustom]="selectedIndex === 0" label="dashboard">
+          <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">dashboard</mat-icon>
+            Dashboard
+          </ng-template>
+        </mat-tab>
+      
+        <mat-tab [class.activeTabCustom]="selectedIndex === 1" label="expense">
+          <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">monetization_on</mat-icon>
+            Expense
+          </ng-template>
+        </mat-tab>
+      
+        <!-- <mat-tab [class.activeTabCustom]="selectedIndex === 2" label="approval" [disabled]="true">
+          <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">thumb_up</mat-icon>
+            Approval
+          </ng-template>
+        </mat-tab> -->
+      
+        <!-- <mat-tab [class.activeTabCustom]="selectedIndex === 3" label="category">
+          <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">admin_panel_settings</mat-icon>
+            Category Settings
+          </ng-template>      
+        </mat-tab> -->
+      </mat-tab-group>
+</ng-template>

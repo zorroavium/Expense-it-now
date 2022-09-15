@@ -1,0 +1,10 @@
+<div>
+    <label for="" class="h5 custom-label">Categories with Biggest Expense</label>
+</div>
+<div class="expense-categories d-flex flex-wrap" style="margin-top:8px;">
+    <mat-card class="card p-1 expense-card" *ngFor="let category of categories">
+        <i class="{{category.icon}}"></i>
+        <span class="card-label">{{category.label}}</span>
+        <span class="card-value">${{category.value}}</span>
+    </mat-card>
+</div>

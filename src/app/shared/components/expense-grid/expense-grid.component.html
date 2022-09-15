@@ -1,0 +1,15 @@
+<div class="w-100">
+    <ag-grid-angular
+      [style.height]="height + 'vh'"
+      class="ag-theme-alpine"
+      [rowData]="(dashboardState$ | async).expense"
+      [columnDefs]="columnDefs"
+      [defaultColDef]="defaultColDef"
+      [frameworkComponents]="frameworkComponents"
+      [gridOptions]="gridOptions"
+      [tooltipMouseTrack]="true"
+      (gridReady)="onGridReady($event)"
+    >
+    </ag-grid-angular>
+    
+  </div>

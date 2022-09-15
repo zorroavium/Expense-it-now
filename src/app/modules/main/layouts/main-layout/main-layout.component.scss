@@ -1,0 +1,142 @@
+section {
+    display: table;
+  }
+
+  .example-label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 120px;
+  }
+
+  .example-button-row {
+    display: table-cell;
+    width: 490px;
+  }
+
+  .example-button-row .mat-button-base {
+    margin: 8px 8px 8px 0;
+  }
+
+  .example-flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+  }
+
+
+  // nav bar CSS
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* HEADINGS */
+
+  h1, p {
+    color: #fff;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  h2 {
+    color: #000;
+    font-size: 1.3rem;
+    text-align: center;
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+
+  /* BASIC SETUP */
+
+  .page-wrapper {
+    width: 100%;
+    height: auto;
+  }
+
+  .nav-wrapper {
+    width: 100%;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+  }
+
+  /* NAVIGATION */
+
+  .navbar {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    overflow: hidden;
+  }
+
+  .navbar img {
+    height: 45px;
+    width: auto;
+    justify-self: start;
+    margin-left: 10px;
+  }
+
+  .navbar ul {
+    list-style: none;
+    justify-self: end;
+
+  }
+
+  .nav-item a {
+    color: #000;
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-decoration: none;
+    transition: color 0.3s ease-out;
+  }
+
+  .nav-item a:hover {
+    color: #3498db;
+  }
+
+  .menu-toggle {
+    justify-self: end;
+    margin-right: 25px;
+    display: none;
+  }
+
+  .menu-toggle:hover{
+    cursor: pointer;
+  }
+
+  .rounded-circle {
+    height: 30px;
+    position: relative;
+    border: none;
+    margin-left: 0.5rem;
+    padding: 9px;
+    padding-top: 1px;
+    font-weight: 500;
+  }
+
+  .initials {
+    border-radius: 50%;
+    font-size: 18px;
+  }
+
+  .widget-heading {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .widget-subheading {
+    font-size: 11px;
+  }

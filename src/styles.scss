@@ -1,0 +1,202 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/ag-grid-community/dist/styles/ag-grid.css";
+@import "../node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css";
+// @import "../node_modules/ag-grid-community/dist/styles/ag-theme-balham.css";
+// @import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+//Quill css
+@import '~quill/dist/quill.core.css';
+@import '~quill/dist/quill.bubble.css';
+@import '~quill/dist/quill.snow.css';
+
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// **Be sure that you only ever include this mixin once!**
+@include mat-core();
+
+// Define the default theme (same as the example above).
+$candy-app-primary: mat-palette($mat-indigo);
+$candy-app-accent:  mat-palette($mat-pink, A200, A100, A400);
+$candy-app-theme:   mat-light-theme((
+  color: (
+    primary: $candy-app-primary,
+    accent: $candy-app-accent,
+  )
+));
+
+// Include the default theme styles (color and default density)
+@include angular-material-theme($candy-app-theme);
+
+
+// Define an alternate dark theme.
+$dark-primary: mat-palette($mat-blue-grey);
+$dark-accent:  mat-palette($mat-amber, A200, A100, A400);
+$dark-warn:    mat-palette($mat-deep-orange);
+$dark-theme:   mat-dark-theme((
+  color: (
+    primary: $dark-primary,
+    accent: $dark-accent,
+    warn: $dark-warn,
+  )
+));
+
+// Include the dark color styles inside of a block with a CSS class. You can make this
+// CSS class whatever you want. In this example, any component inside of an element with
+// `.unicorn-dark-theme` will be affected by this alternate dark theme instead of the default theme.
+.unicorn-dark-theme {
+  @include angular-material-color($dark-theme);
+  @import "../node_modules/ag-grid-community/dist/styles/ag-theme-balham-dark.css";
+}
+
+/////////////////////////////////////////    DEFAULTS     //////////////////////////////////////
+
+html, body {
+  height: 100%;
+}
+
+// scrollbar
+::-webkit-scrollbar {
+  width: 0.4rem;
+  background: transparent;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 0.4rem;
+  background: #c1c1c1cf;
+}
+
+label {
+  color: gray;
+  font-weight: 500;
+  font-size: small;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.hover-circle-background:hover {
+  background-color: rgba(32,33,36,.059) !important;
+  border: none !important;
+  border-radius: 50%!important;
+  transition: background-color .5s linear !important;
+}
+
+.clickable {
+  cursor: pointer !important;
+}
+
+.text-pink {
+  color: #ff4081;
+}
+
+.text-red {
+  color: #c52534;
+}
+
+@media (min-width: 1200px) {
+  .modal-xl {
+     width: 1300px !important;
+     max-width: 1300px !important;
+ }
+}
+
+.mat-select-panel .mat-option {
+  font-size: 12px !important;
+  line-height: 1.8rem !important;
+  height: 1.8rem !important;
+}
+
+.bs-card {
+  box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%) !important;
+}
+
+.container-flex {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #f1f4f6;
+
+    .box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0;
+    }
+  }
+
+  .header-shadow {
+    box-shadow: 0 0.46875rem 2.1875rem rgb(4 9 20 / 3%), 0 0.9375rem 1.40625rem rgb(4 9 20 / 3%), 0 0.25rem 0.53125rem rgb(4 9 20 / 5%), 0 0.125rem 0.1875rem rgb(4 9 20 / 3%);
+}
+
+.space-left {
+  margin-left: 1rem;
+}
+
+.space-right {
+  margin-right: 1rem;
+}
+
+.custom-label {
+  font-weight: 500 !important;
+  color: gray !important;
+  margin-top: 10px !important;
+  font-family: Roboto, "Helvetica Neue", sans-serif !important; 
+}
+
+.ag-theme-alpine .ag-ltr .ag-cell {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/////////////////////////////////////////   FONT AWESOME   ///////////////////////////////////////////////
+
+.fa.theme-icon {
+  background: -webkit-gradient(linear, left top, left bottom, from(#87bfec), to(#1a86db));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/////////////////////////////////////////     AG GRID     ////////////////////////////////////////
+
+.ag-header-cell-label .ag-header-cell-text {
+  white-space: normal !important;
+}
+
+.ag-theme-alpine .ag-cell, .ag-theme-alpine .ag-full-width-row .ag-cell-wrapper.ag-row-group {
+  line-height: 28px;
+}
+
+
+/////////////////////////////////////////   MATERIAL   ///////////////////////////////////////////////
+
+// mat matStepper
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: inherit;
+}
+
+//  For Material Datepicker
+.cdk-overlay-container {
+  z-index: 1050;
+}
+
+.mat-step-icon.mat-step-icon-state-checkicon {
+  background-color: #4caf50 !important;
+}
+
+.mat-step-icon.mat-step-icon-state-highlightofficon {
+  background-color: red !important
+}
+
+.mat-step-icon.mat-step-icon-state-done {
+  background-color: #4caf50 !important;
+}
+
+.mat-step-icon.mat-step-icon-state-schedule {
+  background-color: rgba(0, 0, 0, 0.54);
+}
+

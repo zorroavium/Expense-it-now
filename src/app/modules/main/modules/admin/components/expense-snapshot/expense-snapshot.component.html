@@ -1,0 +1,49 @@
+<div class="expense-snapshot">
+    <div class="card p-1 d-flex bs-card">
+        <div class="custom-label h5 space-left mb-4">
+            <i class="fa fa-file-text-o text-primary" aria-hidden="true"></i>
+            Expense Report
+        </div>
+        <div class="content d-flex flex-row">
+
+            <div class="info d-flex flex-column">
+                <div class="d-flex flex-row"  style="background: #f1f7ff; width: fit-content; margin-left: 14px;">
+                    <div class="expense-value d-flex flex-column p-3">
+                        <div class="icon">
+                            <i class="fa fa-usd text-primary" aria-hidden="true"></i>
+                        </div>
+                        <div class="value">$24000</div>
+                        <div class="label text-primary">Total Expense</div>
+                    </div>
+                    <div class="expense-value d-flex flex-column p-3">
+                        <div class="icon">
+                            <i class="fa fa-arrow-circle-up text-success" aria-hidden="true"></i>
+                        </div>
+                        <div class="value">$9000</div>
+                        <div class="label text-success">Approved</div>
+                    </div>
+                    <div class="expense-value d-flex flex-column p-3">
+                        <div class="icon">
+                            <i class="fa fa-arrow-circle-down text-danger" aria-hidden="true"></i>
+                        </div>
+                        <div class="value">$15000</div>
+                        <div class="label text-danger">Pending Approval</div>
+                    </div>
+                </div>
+
+                <div class="barchart">
+                    <apx-chart
+                    [series]="chartOptionsCategory.series"
+                    [chart]="chartOptionsCategory.chart"
+                    [xaxis]="chartOptionsCategory.xaxis"
+                    [title]="chartOptionsCategory.title"
+                    ></apx-chart>
+                </div>
+            </div>
+
+            <div class="expense-pie-chart space-left" style="margin-right: 10px;">
+                <re-expense-pie-chart></re-expense-pie-chart>
+            </div>
+        </div>
+    </div>
+</div>

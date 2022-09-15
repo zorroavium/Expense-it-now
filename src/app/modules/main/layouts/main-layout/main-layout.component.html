@@ -1,0 +1,59 @@
+<div class="page-wrapper">
+  <div class="nav-wrapper header-shadow" style="z-index: 15;">
+    <nav class="navbar">
+
+      <div class="company-info d-flex flex-row">
+        <div class="nav-brand">
+          <img src="assets/img/logo_expense_it_now.png" width="100" height="100" alt="Italian Trulli">
+        </div>
+      </div>
+
+      <ng-container [ngTemplateOutlet]="tabsTemplate"></ng-container>      
+
+      <ul class="nav no-search">
+        <li class="nav-item">
+          <div class="d-flex flex-row p-1 justify-content-between">
+            <div class="initials-btn d-flex align-items-center">
+              <button class="btn btn-sm btn-warning rounded-circle initials">
+                {{ 'A' }}
+              </button>
+            </div>
+
+            <div class="menu">
+              <button mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu class="navBarMenu" #menu="matMenu">
+                <button mat-menu-item>
+                  <mat-icon>login</mat-icon>
+                  <span style="font-weight: 600;">{{user?.userName}}</span>
+                </button>
+                <button mat-menu-item>
+                  <mat-icon color="primary">settings</mat-icon>
+                  <span>Settings</span>
+                </button>
+                <button mat-menu-item>
+                  <mat-icon color="accent">notifications_off</mat-icon>
+                  <span>Disable alerts</span>
+                </button>
+                <button mat-menu-item (click)="toggleTheme()" [disabled]="true">
+                  <mat-icon color="">color_lens</mat-icon>
+                  <span>Dark Theme</span>
+                </button>
+                <button mat-menu-item (click)="logout()">
+                  <mat-icon color="warn">power_settings_new</mat-icon>
+                  <span>Sign out</span>
+                </button>
+              </mat-menu>
+            </div>
+
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <section class="w-100">
+    <router-outlet></router-outlet>
+  </section>
+</div>

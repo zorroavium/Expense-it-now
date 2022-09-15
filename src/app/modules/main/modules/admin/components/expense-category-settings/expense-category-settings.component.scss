@@ -1,0 +1,26 @@
+.modal-header {
+    padding: 0.5rem 0.5em;
+}
+
+.modal-title {
+    font-size: 14px;
+}
+
+.modal-body {
+    background-color: #f1f1f1;
+}
+
+.dept-box {
+    max-height: 400px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.list-name {
+    color: gray;
+}
+
+.dept-list {
+    margin-bottom: 10px;
+    margin-right: 5px;
+}

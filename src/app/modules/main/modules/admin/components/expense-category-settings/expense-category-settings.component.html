@@ -1,0 +1,56 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">
+        <mat-icon style="font-size: 15px;" class="space-left">category</mat-icon>
+        <span style="position: relative; bottom: 2px;">Manage Expense Category</span>
+    </h4>
+    <button type="button" class="close pull-right btn btn-light" aria-label="Close" (click)="close()" style="border-radius: 50%;">
+      <i aria-hidden="true" class="fa fa-times text-muted"></i>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="d-flex">
+
+      <div class="col p-0">
+        <div class="dept-box">
+          <div *ngFor="let category of categoryList; let i=index;" class="card p-2 dept-list d-flex flex-row justify-content-between shadow-sm">
+
+              <div class="d-flex flex-row" *ngIf="i !== editingIndex">
+                <div>
+                  <i class="{{category.icon + ' ' + category.color}} space-right"></i>
+                </div>
+                <div>
+                  <span class="list-name"> {{category.name}}</span>
+              </div>
+            </div>
+              <div class="d-flex flex-row" *ngIf="i === editingIndex" style="width: 400px;">
+                <div>
+                  <input type="text" [(ngModel)]="this.categoryList[i].name" class="form-control form-control-sm" id="category-{{i}}">
+                </div>
+                <div>
+                  <input type="text" [(ngModel)]="this.categoryList[i].icon" class="form-control form-control-sm" id="category-{{i}}">
+                </div>
+                <div>
+                  <input type="text" [(ngModel)]="this.categoryList[i].color" class="form-control form-control-sm" id="category-{{i}}">
+                </div>
+            </div>
+
+            <i class="fa fa-pencil text-primary clickable" *ngIf="i !== editingIndex" (click)="edit(i)"></i>
+            <i class="fa fa-check text-success clickable" *ngIf="i === editingIndex" (click)="saveEdit(i)"></i>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <div class="input-group" style="margin-right: 13px;">
+      <input class="form-control form-control-sm" name="newDepartment" type="text"
+        placeholder="Add New Expense Category" [(ngModel)]="newCategory" />
+      <span class="input-group-btn" style="min-width: auto;">
+        <button class="btn btn-success btn-sm" type="button" (click)="addCategoryToList()"><i
+            class="fa fa-plus-circle"></i>
+        </button>
+      </span>
+    </div>
+  </div>

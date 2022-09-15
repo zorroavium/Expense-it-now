@@ -1,0 +1,123 @@
+<div class="all-expenses container-fluid w-100">
+    <div class="d-flex flex-row justify-content-between">
+        <!-- <div class="w-100" style="margin-right: 1rem;">
+            <mat-card class="p-1 charts">
+                <apx-chart
+                [series]="chartOptions.series"
+                [chart]="chartOptions.chart"
+                [xaxis]="chartOptions.xaxis"
+                [title]="chartOptions.title"
+                ></apx-chart>
+            </mat-card>
+        </div>
+        <div class="" style="min-width: 600px;">
+            <mat-card class="p-1 charts">
+                <apx-chart
+                [series]="chartOptionsLine.series"
+                [chart]="chartOptionsLine.chart"
+                [xaxis]="chartOptionsLine.xaxis"
+                [title]="chartOptionsLine.title"
+                ></apx-chart>
+            </mat-card>
+        </div> -->
+        <at-slider-sidebar #slider1 [width]="320" [top]="44" [relative]="true" [marginBottom]="17" [(collapsed)]="collapsed">
+            <form class="d-flex flex-column align-items-stretch scroll-content" [formGroup]="form">
+            <div class="text-primary h5 mt-2">
+                <i class="fa fa-filter" aria-hidden="true"></i> Filter
+                </div>
+
+              <hr style="margin-top: 8px;">
+
+              <div class="form-group">
+                <label for="employeeCode">Employee Code</label>
+                <input type="text" class="form-control form-control-sm" id="employeeCode" formControlName="employeeCode">
+              </div>
+              <div class="form-group">
+                <label for="employeeName">Employee Name</label>
+                <input type="text" class="form-control form-control-sm" id="employeeName" formControlName="employeeName">
+              </div>
+              <div class="form-group">
+                <label for="category">Category</label>
+                <input type="text" class="form-control form-control-sm" id="category" formControlName="category">
+              </div>
+              <div class="form-group">
+                <label for="expenseDate">Expense Date</label>
+                <input type="text" class="form-control form-control-sm" id="expenseDate" formControlName="expenseDate">
+              </div>
+              <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" class="form-control form-control-sm" id="description" formControlName="description">
+              </div>
+              <div class="form-group">
+                <label for="status">Status</label>
+                <input type="text" class="form-control form-control-sm" id="status" formControlName="status">
+              </div>
+
+              <div class="search-btn mt-4">
+                <button mat-raised-button class="w-100" color="primary" (click)="search()">Search</button>
+            </div>
+
+              <!-- <mat-form-field class="example-form-field">
+                <mat-icon matPrefix>person</mat-icon>
+                <mat-label>Employee Name</mat-label>
+                <input matInput type="text">
+              </mat-form-field>
+
+              <mat-form-field class="example-form-field">
+                <mat-icon matPrefix>category</mat-icon>
+                <mat-label>Category</mat-label>
+                <input matInput type="text">
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>Expense Date</mat-label>
+                <input matInput [matDatepicker]="picker">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+
+              <mat-form-field class="example-form-field">
+                <mat-icon matPrefix>category</mat-icon>
+                <mat-label>Description</mat-label>
+                <input matInput type="text">
+              </mat-form-field>
+
+              <mat-form-field class="example-form-field">
+                <mat-icon matPrefix>category</mat-icon>
+                <mat-label>Expense Amount</mat-label>
+                <input matInput type="text">
+              </mat-form-field>
+
+              <mat-form-field class="example-form-field">
+                <mat-icon matPrefix>category</mat-icon>
+                <mat-label>Approved Amount</mat-label>
+                <input matInput type="text">
+              </mat-form-field>
+
+              <mat-form-field class="example-form-field">
+                <mat-icon matPrefix>category</mat-icon>
+                <mat-label>Updated On</mat-label>
+                <input matInput type="text">
+              </mat-form-field>
+
+              <mat-form-field class="example-form-field">
+                <mat-icon matPrefix>category</mat-icon> 
+                <mat-label>Status</mat-label>
+                <input matInput type="text">
+              </mat-form-field> -->
+
+            </form>
+          </at-slider-sidebar>
+          <div class="grid m-2 w-100 animate-wrapper" [style.paddingLeft]="collapsed ? '0px' : '320px'">
+            <h5 class="label text-gray">
+                All Expenses
+            </h5>
+            <re-expense-grid 
+            [height]="83"
+            [appliedFilter]="appliedFilterModel"
+            ></re-expense-grid>
+         </div>
+       
+      </div>
+
+</div>
